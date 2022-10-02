@@ -35,6 +35,14 @@ const Formulario = () => {
     setListaCita(citaModificada);
   }
 
+  let mensaje ='';
+  
+  if(listaCita.length === 0){
+    mensaje = 'No hay cita programada'
+  }else{
+    mensaje='';
+  }
+
   return (
     <>
       <Container className="background">
@@ -153,6 +161,9 @@ const Formulario = () => {
         </Form>
       </Container>
       <ListaVeterinaria listaCita={listaCita} borrarCita={borrarCita}></ListaVeterinaria>
+      <Container className="text-center fw-lighter display-4">
+      <p>{mensaje}</p>
+      </Container>
     </>
   );
 };

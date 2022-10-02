@@ -11,7 +11,7 @@ const ItemCard = ({cita, borrarCita}) => {
             </Col>
             <Col sm={8}>
             <Card.Title column='true' lg={12} className="fw-lighter my-4">Mascota: {cita.nombreMascota} </Card.Title>
-            <Card.Text column='true' lg={12} className="fw-lighter">Dueño: {cita.NombreDueno}</Card.Text>
+            <Card.Text column='true' lg={12} className="fw-lighter">Dueño: {cita.nombreDueno}</Card.Text>
             </Col>
                 </Row>
           </Card.Body>
