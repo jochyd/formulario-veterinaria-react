@@ -28,6 +28,31 @@ const Formulario = () => {
     setHora("");
     setSintomas("");
   };
+  const validacionMascota =(inputMascota)=>{
+    if(nombreMascota.length <3){
+      inputMascota.classList.add('is-invalid');
+    }else{
+      inputMascota.classList.remove('is-invalid');
+      inputMascota.classList.add('is-valid');
+    }
+  };
+  const validacionNombreDueno =(inputNombreDueno)=>{
+    if(nombreDueno.length <3){
+      inputNombreDueno.classList.add('is-invalid');
+    }else{
+      inputNombreDueno.classList.remove('is-invalid');
+      inputNombreDueno.classList.add('is-valid');
+    }
+  };
+  const validacionSintomas =(inputSintomas)=>{
+    if(sintomas.length <3){
+      inputSintomas.classList.add('is-invalid');
+    }else{
+      inputSintomas.classList.remove('is-invalid');
+      inputSintomas.classList.add('is-valid');
+    }
+  };
+  
   
 
   const borrarCita = (cita) =>{
@@ -41,7 +66,9 @@ const Formulario = () => {
     mensaje = 'No hay cita programada'
   }else{
     mensaje='';
-  }
+  };
+
+ 
 
   return (
     <>
@@ -65,8 +92,9 @@ const Formulario = () => {
                     type="text"
                     placeholder="Ingresa el Nombre de tu Mascota"
                     className="fw-lighter"
-                    onChange={(e) => {setNombreMascota(e.target.value)}}
+                    onChange={(e) => {setNombreMascota(e.target.value); validacionMascota(e.target);}}
                     value={nombreMascota}
+                    required
                   />
                 </Col>
               </Form.Group>
@@ -81,7 +109,7 @@ const Formulario = () => {
                     type="text"
                     placeholder="Ingresa el Nombre del Dueño"
                     className="fw-lighter"
-                    onChange={(e) => {setNombreDueno(e.target.value)}}
+                    onChange={(e) => {setNombreDueno(e.target.value); validacionNombreDueno(e.target);}}
                     value={nombreDueno}
                   />
                 </Col>
@@ -104,8 +132,9 @@ const Formulario = () => {
                   <Form.Control
                     type="date"
                     className="fw-lighter"
-                    onChange={(e) => {setFecha(e.target.value)}}
+                    onChange={(e) => {setFecha(e.target.value); }}
                     value={fecha}
+                    required
                   />
                 </Col>
               </Form.Group>
@@ -129,6 +158,7 @@ const Formulario = () => {
                     className="fw-lighter"
                     onChange={(e) => {setHora(e.target.value)}}
                     value={hora}
+                    required
                   />
                 </Col>
               </Form.Group>
@@ -143,7 +173,7 @@ const Formulario = () => {
                     type="text"
                     placeholder="Ingresa el síntoma"
                     className="fw-lighter"
-                    onChange={(e) => {setSintomas(e.target.value)}}
+                    onChange={(e) => {setSintomas(e.target.value); validacionSintomas(e.target)}}
                     value={sintomas}
                   />
                 </Col>
